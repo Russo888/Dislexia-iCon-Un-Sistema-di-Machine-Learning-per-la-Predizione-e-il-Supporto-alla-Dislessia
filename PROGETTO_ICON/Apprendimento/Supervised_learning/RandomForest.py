@@ -33,7 +33,7 @@ def clean_data(data):
     data['Otherlang'] = data['Otherlang'].map({'No': 0, 'Yes': 1})
 
 # Caricamento dataset
-desktop_data = pd.read_csv("/content/Dyslexia_dataset.csv", sep=';', encoding='utf-8')
+desktop_data = pd.read_csv("C:/Dyslexia_dataset.csv", sep=';', encoding='utf-8')
 clean_data(desktop_data)
 
 # Selezione delle colonne di interesse
