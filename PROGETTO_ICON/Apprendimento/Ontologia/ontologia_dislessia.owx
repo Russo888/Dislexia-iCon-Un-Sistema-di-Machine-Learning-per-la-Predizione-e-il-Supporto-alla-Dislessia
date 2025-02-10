@@ -1,0 +1,637 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/nicolarusso/ontologies/2025/1/untitled-ontology-11"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/nicolarusso/ontologies/2025/1/untitled-ontology-11">
+    <Prefix name="" IRI="http://www.semanticweb.org/nicolarusso/ontologies/2025/1/untitled-ontology-11/"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#Difficoltà"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Dislessia"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Persona"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Prestazioni"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#diagnosi"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#haDifficoltà"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#haDislessia"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#haPrestazione"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#conosceAltraLingua"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#età"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#genere"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#linguaMadre"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#valoreAccuracy"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#valoreClicks"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#valoreHits"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#valoreMisses"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#valoreMissrate"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#valoreScore"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Difficoltà_Lettura"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Difficoltà_Scrittura"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Dislessia_No"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Dislessia_Yes"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Errori_Ortografici"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Persona_001"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Persona_002"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Persona_003"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Persona_004"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Persona_005"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Prestazione_001"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Prestazione_002"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Prestazione_003"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Prestazione_004"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Prestazione_005"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Velocità_Riconoscimento_Lettere"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Difficoltà"/>
+        <NamedIndividual IRI="#Difficoltà_Lettura"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Difficoltà"/>
+        <NamedIndividual IRI="#Difficoltà_Scrittura"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Dislessia"/>
+        <NamedIndividual IRI="#Dislessia_No"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Dislessia"/>
+        <NamedIndividual IRI="#Dislessia_Yes"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Difficoltà"/>
+        <NamedIndividual IRI="#Errori_Ortografici"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Persona"/>
+        <NamedIndividual IRI="#Persona_001"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Persona"/>
+        <NamedIndividual IRI="#Persona_002"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Persona"/>
+        <NamedIndividual IRI="#Persona_003"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Persona"/>
+        <NamedIndividual IRI="#Persona_004"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Persona"/>
+        <NamedIndividual IRI="#Persona_005"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Prestazioni"/>
+        <NamedIndividual IRI="#Prestazione_001"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Prestazioni"/>
+        <NamedIndividual IRI="#Prestazione_002"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Prestazioni"/>
+        <NamedIndividual IRI="#Prestazione_003"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Prestazioni"/>
+        <NamedIndividual IRI="#Prestazione_004"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Prestazioni"/>
+        <NamedIndividual IRI="#Prestazione_005"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Difficoltà"/>
+        <NamedIndividual IRI="#Velocità_Riconoscimento_Lettere"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#haDifficoltà"/>
+        <NamedIndividual IRI="#Persona_001"/>
+        <NamedIndividual IRI="#Difficoltà_Lettura"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#haDislessia"/>
+        <NamedIndividual IRI="#Persona_001"/>
+        <NamedIndividual IRI="#Dislessia_No"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#haPrestazione"/>
+        <NamedIndividual IRI="#Persona_001"/>
+        <NamedIndividual IRI="#Prestazione_001"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#haDifficoltà"/>
+        <NamedIndividual IRI="#Persona_002"/>
+        <NamedIndividual IRI="#Difficoltà_Scrittura"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#haDislessia"/>
+        <NamedIndividual IRI="#Persona_002"/>
+        <NamedIndividual IRI="#Dislessia_No"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#haPrestazione"/>
+        <NamedIndividual IRI="#Persona_002"/>
+        <NamedIndividual IRI="#Prestazione_002"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#haDislessia"/>
+        <NamedIndividual IRI="#Persona_003"/>
+        <NamedIndividual IRI="#Dislessia_Yes"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#haPrestazione"/>
+        <NamedIndividual IRI="#Persona_003"/>
+        <NamedIndividual IRI="#Prestazione_003"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#haDislessia"/>
+        <NamedIndividual IRI="#Persona_004"/>
+        <NamedIndividual IRI="#Dislessia_No"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#haPrestazione"/>
+        <NamedIndividual IRI="#Persona_004"/>
+        <NamedIndividual IRI="#Prestazione_004"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#haDislessia"/>
+        <NamedIndividual IRI="#Persona_005"/>
+        <NamedIndividual IRI="#Dislessia_No"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#haPrestazione"/>
+        <NamedIndividual IRI="#Persona_005"/>
+        <NamedIndividual IRI="#Prestazione_005"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#conosceAltraLingua"/>
+        <NamedIndividual IRI="#Persona_001"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#età"/>
+        <NamedIndividual IRI="#Persona_001"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">7</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#genere"/>
+        <NamedIndividual IRI="#Persona_001"/>
+        <Literal>maschio</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#linguaMadre"/>
+        <NamedIndividual IRI="#Persona_001"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#conosceAltraLingua"/>
+        <NamedIndividual IRI="#Persona_002"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#età"/>
+        <NamedIndividual IRI="#Persona_002"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">10</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#genere"/>
+        <NamedIndividual IRI="#Persona_002"/>
+        <Literal>femmina</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#linguaMadre"/>
+        <NamedIndividual IRI="#Persona_002"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#conosceAltraLingua"/>
+        <NamedIndividual IRI="#Persona_003"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#età"/>
+        <NamedIndividual IRI="#Persona_003"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">9</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#genere"/>
+        <NamedIndividual IRI="#Persona_003"/>
+        <Literal>Maschio</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#linguaMadre"/>
+        <NamedIndividual IRI="#Persona_003"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#conosceAltraLingua"/>
+        <NamedIndividual IRI="#Persona_004"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#età"/>
+        <NamedIndividual IRI="#Persona_004"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">10</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#genere"/>
+        <NamedIndividual IRI="#Persona_004"/>
+        <Literal>Femmina</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#linguaMadre"/>
+        <NamedIndividual IRI="#Persona_004"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#conosceAltraLingua"/>
+        <NamedIndividual IRI="#Persona_005"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#età"/>
+        <NamedIndividual IRI="#Persona_005"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">7</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#genere"/>
+        <NamedIndividual IRI="#Persona_005"/>
+        <Literal>Femmina</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#linguaMadre"/>
+        <NamedIndividual IRI="#Persona_005"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#valoreAccuracy"/>
+        <NamedIndividual IRI="#Prestazione_001"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#float">1.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#valoreClicks"/>
+        <NamedIndividual IRI="#Prestazione_001"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">10</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#valoreHits"/>
+        <NamedIndividual IRI="#Prestazione_001"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">10</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#valoreMissrate"/>
+        <NamedIndividual IRI="#Prestazione_001"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#float">0.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#valoreScore"/>
+        <NamedIndividual IRI="#Prestazione_001"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">10</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#valoreAccuracy"/>
+        <NamedIndividual IRI="#Prestazione_002"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#float">1.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#valoreClicks"/>
+        <NamedIndividual IRI="#Prestazione_002"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">13</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#valoreHits"/>
+        <NamedIndividual IRI="#Prestazione_002"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">13</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#valoreMissrate"/>
+        <NamedIndividual IRI="#Prestazione_002"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#float">0.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#valoreScore"/>
+        <NamedIndividual IRI="#Prestazione_002"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">13</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#valoreAccuracy"/>
+        <NamedIndividual IRI="#Prestazione_003"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#float">0.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#valoreHits"/>
+        <NamedIndividual IRI="#Prestazione_003"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#valoreMisses"/>
+        <NamedIndividual IRI="#Prestazione_003"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#valoreMissrate"/>
+        <NamedIndividual IRI="#Prestazione_003"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#float">0.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#valoreScore"/>
+        <NamedIndividual IRI="#Prestazione_003"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#valoreAccuracy"/>
+        <NamedIndividual IRI="#Prestazione_004"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#float">0.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#valoreClicks"/>
+        <NamedIndividual IRI="#Prestazione_004"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">11</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#valoreHits"/>
+        <NamedIndividual IRI="#Prestazione_004"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#valoreMissrate"/>
+        <NamedIndividual IRI="#Prestazione_004"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#float">0.2727</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#valoreScore"/>
+        <NamedIndividual IRI="#Prestazione_004"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#valoreAccuracy"/>
+        <NamedIndividual IRI="#Prestazione_005"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#float">1.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#valoreClicks"/>
+        <NamedIndividual IRI="#Prestazione_005"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">3</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#valoreHits"/>
+        <NamedIndividual IRI="#Prestazione_005"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">3</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#valoreMissrate"/>
+        <NamedIndividual IRI="#Prestazione_005"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#float">0.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#valoreScore"/>
+        <NamedIndividual IRI="#Prestazione_005"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">3</Literal>
+    </DataPropertyAssertion>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#diagnosi"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+            <Class IRI="#Dislessia"/>
+        </ObjectSomeValuesFrom>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#haDifficoltà"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+            <Class IRI="#Persona"/>
+        </ObjectSomeValuesFrom>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#haDislessia"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+            <Class IRI="#Persona"/>
+        </ObjectSomeValuesFrom>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#haPrestazione"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+            <Class IRI="#Persona"/>
+        </ObjectSomeValuesFrom>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#diagnosi"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+            <Class IRI="#Persona"/>
+        </ObjectSomeValuesFrom>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#haDifficoltà"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+            <Class IRI="#Difficoltà"/>
+        </ObjectSomeValuesFrom>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#haDislessia"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+            <Class IRI="#Dislessia"/>
+        </ObjectSomeValuesFrom>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#haPrestazione"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+            <Class IRI="#Prestazioni"/>
+        </ObjectSomeValuesFrom>
+    </ObjectPropertyRange>
+    <DataPropertyDomain>
+        <DataProperty IRI="#conosceAltraLingua"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+            <Class IRI="#Persona"/>
+        </ObjectSomeValuesFrom>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#età"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+            <Class IRI="#Persona"/>
+        </ObjectSomeValuesFrom>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#genere"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+            <Class IRI="#Persona"/>
+        </ObjectSomeValuesFrom>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#linguaMadre"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+            <Class IRI="#Persona"/>
+        </ObjectSomeValuesFrom>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#valoreAccuracy"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+            <Class IRI="#Prestazioni"/>
+        </ObjectSomeValuesFrom>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#valoreClicks"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+            <Class IRI="#Prestazioni"/>
+        </ObjectSomeValuesFrom>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#valoreHits"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+            <Class IRI="#Prestazioni"/>
+        </ObjectSomeValuesFrom>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#valoreMisses"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+            <Class IRI="#Prestazioni"/>
+        </ObjectSomeValuesFrom>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#valoreMissrate"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+            <Class IRI="#Prestazioni"/>
+        </ObjectSomeValuesFrom>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#valoreScore"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+            <Class IRI="#Prestazioni"/>
+        </ObjectSomeValuesFrom>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#conosceAltraLingua"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#età"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#genere"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#linguaMadre"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#valoreAccuracy"/>
+        <Datatype abbreviatedIRI="xsd:float"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#valoreClicks"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#valoreHits"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#valoreMisses"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#valoreMissrate"/>
+        <Datatype abbreviatedIRI="xsd:float"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#valoreScore"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
