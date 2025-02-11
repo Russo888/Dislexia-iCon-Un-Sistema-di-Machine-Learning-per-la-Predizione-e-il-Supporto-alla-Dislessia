@@ -48,7 +48,7 @@ plt.title('Metodo del gomito')
 plt.show()
 
 # Applicazione di K-Means con il numero di cluster ottimale (da scegliere in base al grafico)
-optimal_k = 3  # Sostituiscilo con il valore corretto in base al grafico
+optimal_k = 4  # Sostituiscilo con il valore corretto in base al grafico
 kmeans = KMeans(n_clusters=optimal_k, n_init=10, random_state=42)
 clusters = kmeans.fit_predict(final_dataset)
 
