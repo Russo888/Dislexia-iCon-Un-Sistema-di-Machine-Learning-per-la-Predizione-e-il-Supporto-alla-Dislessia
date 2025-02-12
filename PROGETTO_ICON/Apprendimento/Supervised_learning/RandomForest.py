@@ -73,7 +73,7 @@ print(confusion_matrix(y_test, y_pred_rf))
 cm = confusion_matrix(y_test, y_pred_rf)
 df_cm = pd.DataFrame(cm, index=['No', 'Yes'], columns=['No', 'Yes'])
 plt.figure(figsize=(10, 7))
-sn.heatmap(df_cm, annot=True, fmt='g', cmap='Blues')
+sn.heatmap(df_cm, annot=True, fmt='g')
 plt.title("Confusion Matrix")
 plt.show()
 
