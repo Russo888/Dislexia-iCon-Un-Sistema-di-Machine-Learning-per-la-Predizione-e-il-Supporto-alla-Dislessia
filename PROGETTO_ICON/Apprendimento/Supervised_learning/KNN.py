@@ -1,155 +1,149 @@
-"""
-Questo script analizza un dataset sulla dislessia utilizzando il classificatore dei k-nn.
-Viene effettuato il caricamento dei dati, la loro elaborazione, l'addestramento del modello,
-e l'analisi delle sue prestazioni attraverso metriche e grafici.
-"""
-
-import numpy as np, pandas as pd, seaborn as sn
-from matplotlib import pyplot
+import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
-from imblearn.over_sampling import SMOTE
+import seaborn as sn
+from sklearn.model_selection import KFold, cross_val_score
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.model_selection import train_test_split, cross_val_score
-from sklearn.metrics import classification_report, confusion_matrix, accuracy_score, f1_score
-from sklearn.metrics import precision_recall_curve
-from inspect import signature
-from sklearn.metrics import average_precision_score
-from sklearn.metrics import roc_curve
-from sklearn.metrics import roc_auc_score
+from sklearn.metrics import (
+    accuracy_score, f1_score, precision_score, recall_score,
+    roc_curve, roc_auc_score, precision_recall_curve, average_precision_score
+)
+from imblearn.over_sampling import SMOTE
 
-# Funzione per la pulizia e trasformazione dei dati
-
+# Pulizia dati
 def clean_data(data):
-    """Converte le colonne stringa in numerico e mappa i valori categorici."""
     for col in data.columns:
         data[col] = data[col].astype('string')
         data[col] = data[col].astype('float', errors='ignore')
-
     data['Gender'] = data['Gender'].map({'Male': 1, 'Female': 2})
     data['Dyslexia'] = data['Dyslexia'].map({'No': 0, 'Yes': 1})
     data['Nativelang'] = data['Nativelang'].map({'No': 0, 'Yes': 1})
     data['Otherlang'] = data['Otherlang'].map({'No': 0, 'Yes': 1})
 
-# Caricamento dataset
-desktop_data = pd.read_csv("/content/Dyslexia_dataset.csv", sep=';', encoding='utf-8')
-clean_data(desktop_data)
+# Caricamento dati
+data = pd.read_csv("/content/Dyslexia_dataset.csv", sep=';', encoding='utf-8')
+clean_data(data)
 
-# Selezione delle colonne di interesse
+# Selezione feature
 features = ['Gender', 'Nativelang', 'Otherlang', 'Age', 'Dyslexia']
 for i in range(30):
-    if (i in list(range(12)) + list(range(13, 17)) + [21, 22, 29]):
+    if i in list(range(12)) + list(range(13, 17)) + [21, 22, 29]:
         for metric in ['Clicks', 'Hits', 'Misses', 'Score', 'Accuracy', 'Missrate']:
             features.append(f'{metric}{i+1}')
+data = data[features]
 
-desktop_data = desktop_data[features]
+# Variabili indipendenti e target
+y = data['Dyslexia']
+X = data.drop(columns=['Dyslexia'])
 
-# Separazione delle variabili dipendenti e indipendenti
-y = desktop_data['Dyslexia']
-X = desktop_data.drop(columns=['Dyslexia'])
+# Cross-validation
+cv = KFold(n_splits=5, shuffle=True, random_state=42)
+acc_list, f1_list, prec_list, recall_list = [], [], [], []
+all_predictions, all_true = [], []
 
-# Divisione dei dati in training e test set
-X_train, X_test, y_train, y_test = train_test_split(X, y, train_size = 0.80, random_state = 13)
+# Test su vari valori di K
+error_rates = []
+for k in range(1, 20):
+    knn = KNeighborsClassifier(n_neighbors=k)
+    sm = SMOTE(random_state=42)
+    X_sm, y_sm = sm.fit_resample(X, y)
 
-# Applicazione di SMOTE per bilanciare le classi
-oversample = SMOTE()
-X1, y1 = oversample.fit_resample (X_train, y_train)
+    cv_scores = cross_val_score(knn, X_sm, y_sm, cv=cv)
+    error_rates.append(1 - np.mean(cv_scores))
 
-#------------------------------------------------------------------------------------------------------------------------------
-error = []
-for i in range(1, 20):
-    knn = KNeighborsClassifier(n_neighbors=i)
-    knn.fit(X1, y1)
-    pred_i = knn.predict(X_test)
-    error.append(np.mean(pred_i != y_test))
-
-#Grafico che mostra l'errore medio nelle predizioni a seguito di una variazione del valore K(numero vicini)
-plt.plot(range(1, 20), error, color='red', linestyle='dashed', marker='o',
-         markerfacecolor='blue', markersize = 10)
-plt.title('Error Rate K Value')
+# Grafico dell'errore medio rispetto a K
+plt.figure(figsize=(8, 5))
+plt.plot(range(1, 20), error_rates, color='red', linestyle='dashed', marker='o',
+         markerfacecolor='blue', markersize=10)
+plt.title('Error Rate vs K Value')
 plt.xlabel('K Value')
 plt.ylabel('Mean Error')
-plt.show()
-#------------------------------------------------------------------------------------------------------------------------------
-
-# Addestramento del modello con il valore ottimale di K
-neigh = KNeighborsClassifier(n_neighbors = 6)
-knn = neigh.fit(X1, y1)
-
-# Effettua previsioni sul test set
-prediction = knn.predict(X_test)
-accuracy = accuracy_score(prediction, y_test)
-print(f"accuracy_score: {accuracy:.2f}")
-
-# Stampa del rapporto di classificazione e della matrice di confusione
-print ('\nClasification report:\n',classification_report(y_test, prediction))
-print ('\nConfusion matrix:\n',confusion_matrix(y_test, prediction))
-
-# Creazione e visualizzazione della matrice di confusione come heatmap
-confusion_matrix = confusion_matrix(y_test, prediction)
-df_cm = pd.DataFrame(confusion_matrix, index = [i for i in "01"], columns = [i for i in "01"])
-plt.figure(figsize = (10,7))
-sn.heatmap(df_cm, annot=True, fmt='g')
-plt.title('Confusion matrix')
+plt.grid(True)
 plt.show()
 
-# Valutazione del modello attraverso cross-validation (di 5)
-cv_scores = cross_val_score(neigh, X, y, cv=5)
+# Scelta di K ottimale
+optimal_k = np.argmin(error_rates) + 1
 
-# Stampa delle statistiche ottenute dalla cross-validation
-print('\ncv_scores mean:{}'.format(np.mean(cv_scores)))
-print('\ncv_score variance:{}'.format(np.var(cv_scores)))
-print('\ncv_score dev standard:{}'.format(np.std(cv_scores)))
+# Addestramento con cross-validation
+for fold, (train_idx, val_idx) in enumerate(cv.split(X), 1):
+    X_train, X_val = X.iloc[train_idx], X.iloc[val_idx]
+    y_train, y_val = y.iloc[train_idx], y.iloc[val_idx]
 
-# Creazione di un grafico per visualizzare varianza e deviazione standard dei cv_scores
-data = {'variance': np.var(cv_scores), 'standard dev': np.std(cv_scores)}
-names = list(data.keys())
-values = list(data.values())
-fig,axs = plt.subplots(1, 1, figsize=(6, 3), sharey=True)
-axs.bar(names, values)
+    sm = SMOTE(random_state=42)
+    X_train_sm, y_train_sm = sm.fit_resample(X_train, y_train)
+
+    knn_clf = KNeighborsClassifier(n_neighbors=optimal_k)
+    knn_clf.fit(X_train_sm, y_train_sm)
+    y_pred = knn_clf.predict(X_val)
+
+    acc = accuracy_score(y_val, y_pred)
+    f1 = f1_score(y_val, y_pred)
+    prec = precision_score(y_val, y_pred)
+    recall = recall_score(y_val, y_pred)
+
+    acc_list.append(acc)
+    f1_list.append(f1)
+    prec_list.append(prec)
+    recall_list.append(recall)
+
+    all_predictions.extend(y_pred)
+    all_true.extend(y_val)
+
+    # Stampa metriche per ogni fold
+    print(f"\n===== Fold {fold} =====")
+    print(f"Accuracy: {acc:.4f}")
+    print(f"F1-score: {f1:.4f}")
+    print(f"Precision: {prec:.4f}")
+    print(f"Recall: {recall:.4f}")
+
+# Grafico delle metriche di cross-validation
+folds = list(range(1, len(acc_list) + 1))
+plt.figure(figsize=(10, 6))
+plt.plot(folds, acc_list, label='Accuracy', marker='o', linestyle='-', color='royalblue')
+plt.plot(folds, f1_list, label='F1-score', marker='s', linestyle='--', color='orange')
+plt.plot(folds, prec_list, label='Precision', marker='^', linestyle=':', color='green')
+plt.plot(folds, recall_list, label='Recall', marker='v', linestyle='-.', color='red')
+plt.title('Cross-Validation Performance per Fold (KNN)')
+plt.xlabel('Fold')
+plt.ylabel('Score')
+plt.ylim(0, 1.05)
+plt.xticks(folds)
+plt.grid(True, linestyle='--', alpha=0.7)
+plt.legend()
+plt.tight_layout()
 plt.show()
 
-# Calcolo delle probabilità e dell'AUC per la curva ROC
-probs = knn.predict_proba(X_test)
-probs = probs[:, 1]
+# ROC Curve
+y_probs = knn_clf.predict_proba(X_val)[:, 1]
+fpr, tpr, _ = roc_curve(y_val, y_probs)
+auc_score = roc_auc_score(y_val, y_probs)
 
-# Calcolo e visualizzazione della curva ROC
-auc = roc_auc_score(y_test, probs)
-print('\nAUC: %.3f' % auc)
-# calcolo roc curve
-fpr, tpr, thresholds = roc_curve(y_test, probs)
-# plot no skill
-pyplot.plot([0, 1], [0, 1], linestyle='--')
-# plot the roc curve for the model
-pyplot.plot(fpr, tpr, marker='.')
-pyplot.xlabel('FP RATE')
-pyplot.ylabel('TP RATE')
-pyplot.show()
+plt.figure(figsize=(8, 5))
+plt.plot([0, 1], [0, 1], linestyle='--')
+plt.plot(fpr, tpr, marker='.')
+plt.xlabel('False Positive Rate')
+plt.ylabel('True Positive Rate')
+plt.title(f'ROC Curve (AUC = {auc_score:.3f})')
+plt.show()
 
-# Calcolo dell'average precision e visualizzazione della curva precision-recall
-average_precision = average_precision_score(y_test, prediction)
-precision, recall, _ = precision_recall_curve(y_test, prediction)
+# Precision-Recall Curve
+precision, recall, _ = precision_recall_curve(y_val, y_probs)
+avg_precision = average_precision_score(y_val, y_probs)
 
-# In matplotlib < 1.5, plt.fill_betwee non dispone dell'argomento 'step'
-step_kwargs = ({'step': 'post'}
-               if 'step' in signature(plt.fill_between).parameters
-               else {})
-plt.step(recall, precision, color='b', alpha=0.2,
-         where='post')
-plt.fill_between(recall, precision, alpha=0.2, color='b', **step_kwargs)
+plt.figure(figsize=(8, 5))
+plt.step(recall, precision, where='post', color='b', alpha=0.6)
+plt.fill_between(recall, precision, alpha=0.2, color='b', step='post')
 plt.xlabel('Recall')
 plt.ylabel('Precision')
-plt.ylim([0.0, 1.05])
-plt.xlim([0.0, 1.0])
-plt.title('2-class Precision-Recall curve: AP={0:0.2f}'.format(average_precision))
+plt.title(f'Precision-Recall Curve (AP = {avg_precision:.3f})')
 plt.show()
 
-# Calcolo dell'F1-score
-f1= f1_score(y_test, prediction)
+# Grafico varianza e deviazione standard
+data_variance = {'Variance': np.var(acc_list), 'Standard Deviation': np.std(acc_list)}
+names = list(data_variance.keys())
+values = list(data_variance.values())
 
-# Creazione di un grafico per visualizzare varianza e deviazione standard dei cv_scores
-data = {'variance': np.var(cv_scores), 'standard dev': np.std(cv_scores)}
-names = list(data.keys())
-values = list(data.values())
-fig,axs = plt.subplots(1, 1, figsize=(6, 3), sharey=True)
-axs.bar(names, values)
+plt.figure(figsize=(6, 3))
+plt.bar(names, values, color=['blue', 'orange'])
+plt.title('Variance and Standard Deviation of Cross-Validation Scores')
 plt.show()
